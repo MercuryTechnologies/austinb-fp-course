@@ -5,7 +5,7 @@ version:              0.1.4
 build-type:           Simple
 extra-source-files:   etc/CONTRIBUTORS
 
-license:              BSD3
+license:              BSD-3-Clause
 license-file:         etc/LICENCE
 author:               Tony Morris <tmorris@tmorris.net>
                       Mark Hibberd <mthibberd@gmail.com>
@@ -30,6 +30,7 @@ library
 
   build-depends:      base >= 4 && < 5
                     , containers >= 0.5 && < 0.7
+                    , QuickCheck
                     , time >= 1.8 && < 1.10
 
   ghc-options:        -Wall
