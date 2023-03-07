@@ -39,7 +39,7 @@ ExactlyOne 3
 -}
 instance Functor ExactlyOne where
     (<$>) :: (a -> b) -> ExactlyOne a -> ExactlyOne b
-    (<$>) f (ExactlyOne x) = ExactlyOne $ f x
+    f <$> ExactlyOne x = ExactlyOne $ f x
 
 {- | Maps a function on the List functor.
 
