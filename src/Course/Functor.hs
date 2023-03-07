@@ -106,7 +106,7 @@ prop> \x q -> x <$ Full q == Full x
 Empty
 -}
 (??) :: Functor k => k (a -> b) -> a -> k b
-(??) f a = (<$>) (\x -> x a) f
+(??) f a = (<$>) ($ a) f
 
 infixl 1 ??
 
