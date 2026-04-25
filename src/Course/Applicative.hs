@@ -35,9 +35,18 @@ class Functor k => Applicative k where
 
 infixl 4 <*>
 
+{- $setup
+>>> :set -XOverloadedStrings
+>>> import Course.Core
+>>> import Prelude (String)
+>>> import Test.QuickCheck
+-}
+
 {- | Insert into ExactlyOne.
 
 prop> \x -> pure x == ExactlyOne x
+Variable not in scope:
+  propEvaluation :: (a0_a4PwL[tau:1] -> Bool) -> IO String
 
 >>> ExactlyOne (+10) <*> ExactlyOne 8
 ExactlyOne 18
@@ -61,7 +70,9 @@ instance Applicative List where
     pure a = (:.) a Nil
 
     (<*>) :: List (a -> b) -> List a -> List b
-    (f :. fs) <*> (x :. xs) = f x :. (fs <*> xs)
+    Nil <*> Nil = Nil
+    (f :. fs) <*> xs = map f xs ++ (fs <*> xs)
+    Nil <*> _ = Nil
 
 {- | Insert into an Optional.
 
